@@ -1,0 +1,42 @@
+<apex:page showHeader="true" standardStylesheets="true" >
+ 
+    <script
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
+        type="text/JavaScript" />
+     
+     
+        <script type="text/JavaScript">
+        function search() {
+            $("#status").html(
+                    "Making a Jquery Ajax Request to '{!$Page.AjaxResponder}'");
+     
+            // Make the Ajax Request
+            $.getJSON("{!$Page.AjaxResponder}", {
+                "core.apexpages.devmode.url" :'1',
+                "q" :$('#query').val()
+            }, function(data) {
+                $("#response").html(JSON.stringify(data));
+            });
+     
+            $("#status").html("Ajax Request Completed !");
+        }
+</script>
+ 
+    <apex:sectionHeader title="Ajax Client Demo" />
+ 
+    <apex:pageblock >
+            <apex:pageBlockSection title="Query Console">
+                <form id="qform">Query String <input type="text" id="query" />
+                <input type="button" onclick="search()" value="Search Contacts " /></form>
+            </apex:pageBlocksection>
+ 
+            <apex:pageBlockSection title="Ajax Console">
+                <h1>Status</h1> 
+                <pre id="status" style="font-size: 16px" />
+                     
+                <h1> JSON Response </h1> 
+                <div id="response" style="font-size: 16px;width: 300px;font-family: monospace; font-stretch: expanded" />
+        </apex:pageBlocksection>
+    </apex:pageblock>
+ 
+</apex:page>

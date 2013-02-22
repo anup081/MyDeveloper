@@ -1,0 +1,79 @@
+<apex:page >
+
+    <apex:includeScript value="{!URLFOR($Resource.jquery10, 'jquery-ui-1.10.0.custom/js/jquery-1.9.0.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery10, 'jquery-ui-1.10.0.custom/js/jquery-ui-1.10.0.custom.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jquery10, 'jquery-ui-1.10.0.custom/css/ui-lightness/jquery-ui-1.10.0.custom.css')}"/>
+
+<script>
+    $j = jQuery.noConflict();
+    //page on load
+    $j(window).load(function() {
+      //alert("The page is loading");
+    });
+    
+    //page Ready
+    $j(document).ready(function() {
+    
+    //jquery selectors 
+    $j("input").click(function(){        
+        $j("p").hide();
+        //$j("#test").hide();
+        //$j("#test").hide();
+        //$j('[id$=vfOpText]').hide();
+        //$j(".abc").hide();
+        //$j(this).hide()
+        //$j("p").toggle();
+        //$j("#div1").fadeIn();
+        //$j("#div1").fadeIn("slow");
+        //$j("#div1").fadeIn(3000);
+        //$j("#div1").fadeOut();
+        //$j("#div1").animate({left:'250px'});
+        //alert('width: '+$j("#div1").width());
+        //$j("#div1").height();
+        //alert("Text: " + $j("#test").text());
+        //alert("HTML: " + $j("#test").html());
+        //alert($j('[id$=inputText]').val());
+        //$j('[id$=inputText]').val("Set this");
+        //alert("Background color = " + $j("#test1").css("background-color"));
+        //$j("#test1").css("background-color","yellow").css("font-size","200%");
+        return false;
+    
+    });
+    
+    /*
+    //jquery Events
+    $j("#test").hover(function(){
+        alert("You entered p1!");
+    },
+        function(){
+        alert("Bye! You now leave p1!");
+      }); 
+   */ 
+    
+    
+    
+    
+      
+    });
+   
+   
+</script>
+
+<apex:form >
+<apex:pageBlock title="jquery">
+
+<h2>This is a heading</h2>
+<p id="test1" style="background-color:#ff0000">This is a paragraph.</p>
+<p id="test">This is another paragraph.</p>
+<apex:outputPanel id="vfOpText" styleClass="abc">This is visualforce output text</apex:outputPanel>
+<br/>
+<apex:inputText id="inputText" rendered="true"/>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;position:absolute;"></div>
+<apex:pageBlockButtons >
+<apex:commandButton value="click Me"/>
+</apex:pageBlockButtons>
+
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

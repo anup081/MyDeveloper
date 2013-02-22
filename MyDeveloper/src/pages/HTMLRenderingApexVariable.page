@@ -1,0 +1,27 @@
+<apex:page controller="ApexVarController">
+    <!--  
+        This container div "mycontainer-div" will be used to track, the HTML differences between apex:outputPanel and apex:variable
+     -->
+    <div id="mycontainer-div">
+        <!-- apex:outputPanel tag to control the rendering for Markup -->
+        <apex:outputPanel rendered="{!controllerBoolTrueVar}">
+            <h1>This markup is rendered under control of &lt;apex:outputPanel
+            /&gt; tag</h1>  
+        </apex:outputPanel> 
+         
+         
+        <!-- apex:variable tag to control the rendering for Markup -->
+        <apex:variable value="anything will go here" var="tempRenderingVar1"
+            rendered="{!controllerBoolTrueVar}">
+            <h1>This markup is rendered under control of &lt;apex:variable
+            /&gt; tag</h1>
+ 
+        </apex:variable> 
+         
+        <!-- apex:variable tag used to not render for a Markup -->
+        <apex:variable value="anything will go here" var="tempRenderingVar2"
+            rendered="{!controllerBoolFalseVar}">
+            <h1>This markup will not appear on the page</h1> 
+        </apex:variable>
+    </div>
+</apex:page>

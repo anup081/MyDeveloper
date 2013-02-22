@@ -1,0 +1,30 @@
+<!-- This the page to call the API rest service (MyRestResource) through controller RestTestController -->
+
+<apex:page controller="RestTestController">
+    <apex:form >
+    <apex:Pageblock title="Rest Service call through button">
+    
+    <apex:pageBlockSection >
+    	<apex:inputText value="{!url}" style="width: 40em; height: 1.5em; font-size: 20px; font-weight: bold;"></apex:inputText>
+    	 
+    	 <apex:selectList id="requestType" value="{!requestType}" size="1">
+    	 	<apex:selectOption itemValue="BLANK" itemLabel="BLANK"/>
+            <apex:selectOption itemValue="GET" itemLabel="GET"/>
+            <apex:selectOption itemValue="POST" itemLabel="POST"/>
+            <apex:selectOption itemValue="DELETE" itemLabel="DELETE"/>
+        </apex:selectList>
+         
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockButtons location="bottom">
+    	<apex:commandButton action="{!submit}" value="Submit"/>
+    </apex:pageBlockButtons>
+ 
+        
+    </apex:Pageblock>
+    
+    <apex:Pageblock title="Result">
+    	<apex:outputText style="white-space: pre-wrap;font-family: courier, monotype;" value="{!getname}"/>       
+    </apex:Pageblock>
+    </apex:form>
+</apex:page>

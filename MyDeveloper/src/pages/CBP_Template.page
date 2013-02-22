@@ -1,0 +1,103 @@
+<apex:page standardController="Opportunity" renderAs="pdf">
+<apex:stylesheet value="{!URLFOR($Resource.PDF_CSS)}"/>
+
+<!--  style to add date and time-->
+    
+      <style>
+       @page {
+       size:11in 8.5in;
+            @bottom-right {
+                    content: "Page " counter(page,disc);
+            }
+    
+            @bottom-center {
+                content: "{!Opportunity.Name}"; 
+            }
+            @bottom-left {
+                content: "Printed: {!Now()}";
+            }
+            }
+       @media print {
+              p {page-break-inside : avoid;}
+              }
+       p {widows : 5; orphans : 5; }
+       
+       .ftpanel {
+            color: #151B54;
+            text-align: right;
+            display: block;
+            font-weight: bold;
+        }               
+
+      </style>
+  
+
+<!--  table to add fiserv logo and header-->
+
+    <apex:panelGrid width="98%" border="0" cellpadding="0" cellspacing="0" columns="2">
+         
+            <apex:outputText value="Client Plan for {!Opportunity.Name}" style="font-size:20px" />
+            <apex:image url="{!$Resource.FiserLogo}" width="90" height="55" />         
+         
+    </apex:panelGrid>
+    
+
+
+
+    
+         <BR/>
+    <apex:outputText value="Last Updated : {!Now()}" style="font-size:18px" />
+ 
+ <!--  Panel grid to add the elements-->
+    <apex:panelGrid columns="1" width="100%"  style="background-color:#FF8000;text-align:center;border:1px dashed #CCCCCC;" rules="rows">
+        <apex:outputText value="Opportunity Summary" style="font-weight: bold; font-color:white"/>
+    </apex:panelGrid>
+    <apex:panelGrid columns="2" border="1" width="100%" style="border: 1px solid;" rules="rows">
+        
+        <apex:outputText value="Client Name:"  style="font-weight: bold;" id="Third"/>
+        <apex:outputText value="{!Opportunity.Account.Name}" id="Four"/>
+        <apex:outputText value="Opportunity/Pursuit Lead:" style="font-weight: bold;"/>
+        <apex:outputText value="{!Opportunity.Owner.Name}"/>
+        <apex:outputText value="Team Members and Roles:" style="font-weight: bold;"/>
+        <apex:outputText value="{!Opportunity.MainCompetitors__c}"/>
+        <apex:outputText value="Current CBP Stage:" style="font-weight: bold;"/>
+        <apex:panelGrid columns="1" border="1" width="100%">
+            <apex:outputText value="Display Current Stage" />
+            <apex:outputText value="Next Current Stage"/>
+        </apex:panelGrid>
+        
+        <apex:outputText value="Win Probability:" style="font-weight: bold;"/>
+        <apex:outputText value="{!Opportunity.Probability}"/>
+        
+        <apex:outputText value="Revenue Potential:" style="font-weight: bold;"/>
+        <apex:outputText value="{!Opportunity.ForecastCategoryName}"/>
+        
+        <apex:outputText value="Anticipated Close Date:" style="font-weight: bold;"/>
+        <apex:panelGrid columns="3" border="1" width="100%">
+            <apex:outputText value="{!Opportunity.CloseDate}"/>
+            <apex:outputText value="Opportunity Start Date:" style="font-weight: bold;"/>
+            <apex:outputText value="{!Opportunity.CloseDate}"/>
+        </apex:panelGrid>
+        
+       <apex:outputText value="Identify Fiserv products/solutions being positioned:" style="font-weight: bold;"/>
+        <apex:outputText value="Opportunity Product"/>
+    
+    </apex:panelGrid>
+ <!--  Second Header--> 
+     <apex:panelGrid columns="1" width="100%"  style="background-color:#FF8000;text-align:center;border: 1px solid;">
+        <apex:outputText value="Opportunity Strategy" style="font-weight: bold; font-color:white"/>
+    </apex:panelGrid>     
+    
+    <apex:panelGrid columns="2" border="1" width="100%" style="border: 1px solid;">
+        <apex:panelGrid columns="2" border="1" width="100%">
+            <apex:outputText value="Opportunity Strategy" style="font-weight: bold;"/>
+            <apex:outputText value="New Field – Pick list (Frontal, Flanking, Fragment, Defend, Defend-Pre-empt, Defend-Timing)"/>
+        </apex:panelGrid>
+        
+        <apex:panelGrid columns="2" border="1" width="100%" cellpadding="10px">
+            <apex:outputText value="Why Chosen?" style="font-weight: bold;"/>
+            <apex:outputText value="New - Free Form Opportunity.Opportunity_Strategy_Why_Chosen__c)"/>
+        </apex:panelGrid>
+        
+    </apex:panelGrid>
+</apex:page>

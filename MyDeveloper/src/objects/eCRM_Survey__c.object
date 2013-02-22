@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contact_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Email</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact First Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Last Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Frequency_of_contacting_eCRM_help__c</fullName>
+        <externalId>false</externalId>
+        <label>Frequency of contacting eCRM help</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Every day</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Every 2 - 3 weeks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Every month</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Every 2 - 3 months</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Overall_satisfaction_with_eCRM_help__c</fullName>
+        <externalId>false</externalId>
+        <label>Overall satisfaction with eCRM help</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Very satisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Somewhat satisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Somewhat dissatisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Very dissatisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Satisfaction_for_most_recent_eCRM_sup__c</fullName>
+        <externalId>false</externalId>
+        <label>Satisfaction for most recent problem</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Very satisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Somewhat satisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Somewhat dissatisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Very dissatisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Support_staff_satisfaction_for_problem__c</fullName>
+        <externalId>false</externalId>
+        <label>Support staff satisfaction for problem</label>
+        <picklist>
+            <picklistValues>
+                <fullName>YES</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Time_to_resolve_the_case_by_eCRM_Help__c</fullName>
+        <externalId>false</externalId>
+        <label>Time to resolve the case by eCRM Help</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Less than 5 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 minutes to less than 10 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10 minutes to less than 20 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20 minutes to less than 30 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30 minutes or more</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Next day</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>More than a day</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Problem did not get resolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Waiting_time_over_phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Waiting time over phone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Less than 1 minute</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 to less than 3 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 to less than 5 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 to less than 10 minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10 minutes or over</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <label>eCRM Survey</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>eCRM Survey Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>eCRM Surveys</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

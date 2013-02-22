@@ -1,0 +1,3 @@
+<apex:page >
+<flow:interview name="Mortgage_Calculator" finishLocation="{!URLFOR('/home/home.jsp')}" />
+</apex:page>

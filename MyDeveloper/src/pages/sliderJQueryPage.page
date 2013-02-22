@@ -1,0 +1,59 @@
+<apex:page standardController="Account" id="Page" extensions="slider">
+  <!-- Here we incldued the necessary jquery javascript and css files -->
+    <apex:includeScript value="{!URLFOR($Resource.jQuery1, 'js/jquery-1.3.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery1, 'js/jquery-ui-1.7.3.custom.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery1, 'css/ui-lightness/jquery-ui-1.7.3.custom.css')}"/>
+    
+      <script type="text/javascript">    
+          // this is for no conflict with SF jquery
+         $j = jQuery.noConflict();
+
+        //This will load as soon as the page is ready and will setup our slider
+        $j(document).ready(function(){
+            $j("#slider-range").slider({ //This line creates a slider on the DIV specified, options are passed arguments, comma separated below
+                range: true, //This give the slider and top and bottom
+                min: 0, //Min value for slider
+                max: 1000, //Max value for slider
+                values: ['{!FlOOR(Account.Budget_Low__c)}', '{!FLOOR(Account.Budget_High__c)}'], //Start values for the slider
+                slide: function(event, ui){ //This function executes every time slider is moved and applies the slider values to the input fields as well as the output below the slider
+                    document.getElementById('{!$Component.page.form.block.values.budgetLow}').value = ui.values[0];
+                    document.getElementById('{!$Component.page.form.block.values.budgetHigh}').value = ui.values[1];
+                    $j("#amountValue").html('$' + ui.values[0] + 'K - $' + ui.values[1] + 'K');
+                }
+            });
+ 
+            //This line executes only once right after the page is loaded and after the slider is initialized. It creates the "$273K - $611K" text on load
+            $j("#amountValue").html('$' + $j("#slider-range").slider("values", 0) + 'K - $' + $j("#slider-range").slider("values", 1) + 'K');
+        });
+    </script>
+    
+    
+     <apex:form id="form">
+        <apex:pageBlock mode="edit" id="block">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" />
+            </apex:pageBlockButtons>
+ 
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Account.Name}"/>
+            </apex:pageBlockSection>
+ 
+            <apex:pageBlockSection title="Budget Info" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Budget Range"/>
+                    <apex:pageBlockSectionItem >
+                        <!-- This is where our slider will be -->
+                        <div id="slider-range" style="font-size: 90%; margin-top: 0.5em;"></div>
+                        <div id="amountValue" style="text-align: center;"></div>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+ 
+            <apex:pageBlockSection columns="1" id="values">
+                <!-- You could make these fields apex:inputHidden and then use only the slider -->
+                <apex:inputField value="{!Account.Budget_Low__c}" id="budgetLow" />       
+                <apex:inputField value="{!Account.Budget_High__c}" id="budgetHigh"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

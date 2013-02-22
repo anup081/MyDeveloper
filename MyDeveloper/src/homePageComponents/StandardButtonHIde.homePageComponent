@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script&gt;$j = jQuery.noConflict();var objectPefix = window.location.href.substring( window.location.href.indexOf(&apos;.com/&apos;) + 5, window.location.href.indexOf(&apos;.com/&apos;) + 8 );$j(document).ready(function(){			if(objectPefix == &quot;003&quot;){		$j(&quot;input[name=&apos;save_new&apos;]&quot;).hide();	}	});&lt;/script&gt;&lt;div id=&quot;swj_SiteWideJavascript&quot;&gt; &lt;script type=&quot;text/javascript&quot;&gt; if 
+(document.getElementById(&quot;swj_SiteWideJavascript&quot;) != null) { if 
+(document.getElementById(&quot;swj_SiteWideJavascript&quot;).parentNode.parentNode.className.indexOf(&quot;htmlAreaComponentModule&quot;) 
+!= -1) 
+document.getElementById(&quot;swj_SiteWideJavascript&quot;).parentNode.parentNode.style.display 
+= &apos;none&apos;; } &lt;/script&gt;&lt;/div&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

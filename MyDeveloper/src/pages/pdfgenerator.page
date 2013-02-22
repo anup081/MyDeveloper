@@ -1,0 +1,58 @@
+<apex:page renderAs="pdf" controller="PdfGenerator">
+
+<apex:stylesheet value="{!URLFOR($Resource.PDF_CSS)}"/>
+<apex:image value="{!URLFOR($Resource.FiservPhoto)}"/>
+
+<BR/>
+
+<apex:pageBlock title="Developer Accounts">
+
+<apex:pageBlockTable title="All Accounts" value="{!accs}" var="a" border="2" cellpadding="10px" style="font-size: 80%;" headerClass="tablehead">
+
+<apex:column value="{!a.Id}"/> 
+<apex:column value="{!a.name}"/> 
+<apex:column value="{!a.AnnualRevenue}"/> 
+<apex:column value="{!a.Phone}"/> 
+<apex:column value="{!a.Industry }"/> 
+<apex:column value="{!a.Ownership }"/> 
+
+
+</apex:pageBlockTable>
+
+<BR/><BR/><BR/><BR/><BR/>
+</apex:pageBlock>
+
+<apex:dataTable value="{!accs}" var="c" id="theTable" headerClass="tablehead" rowClasses="odd,even" style="font-size: 80%; " columnsWidth="50px, 100px, 150px, 100px, 100px, 50px, 100px, 100px, 100px, 100px">
+
+<apex:column style="border: 1px">
+   <apex:facet name="header">Account ID</apex:facet>
+   <apex:outputText value="{!c.Id}"/>
+</apex:column>
+
+<apex:column style="border: 1px">
+   <apex:facet name="header">Account Name</apex:facet>
+   <apex:outputText value="{!c.Name}"/>
+</apex:column>
+
+<apex:column style="border: 1px">
+   <apex:facet name="header">Annual Revenue</apex:facet>
+   <apex:outputText value="{!c.AnnualRevenue}"/>
+</apex:column>
+
+<apex:column style="border: 1px">
+   <apex:facet name="header">Phone</apex:facet>
+   <apex:outputText value="{!c.Phone}"/>
+</apex:column>
+
+<apex:column style="border: 1px">
+   <apex:facet name="header">Industry </apex:facet>
+   <apex:outputText value="{!c.Industry }"/>
+</apex:column>
+
+<apex:column style="border: 1px">
+   <apex:facet name="header">Ownership  </apex:facet>
+   <apex:outputText value="{!c.Ownership }"/>
+</apex:column>
+
+</apex:dataTable> 
+</apex:page>

@@ -1,0 +1,24 @@
+<apex:page id="autoPage">
+<script>
+    function noenter(ev)
+    {
+        if (window.event && window.event.keyCode == 13 || ev.which == 13)
+        {
+            alert(ev.which);
+            var ele=document.getElementById(cl);
+            alert(ele.click());
+            ele.click();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+</script>
+    <apex:form id="autoForm"><br />
+        <apex:inputText id="account1" onkeypress="return noenter(event);">
+            <c:autocomplete2 objectname="Account" additionalfield="Site" autocomplete_textbox="{!$Component.account1}"/>
+        </apex:inputText>
+    </apex:form>
+</apex:page>

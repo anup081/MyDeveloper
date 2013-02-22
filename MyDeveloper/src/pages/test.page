@@ -1,0 +1,97 @@
+<apex:page tabStyle="Account" controller="massAccountUpdateCon" sidebar="false">
+<apex:sectionHeader title="Accounts Mass Update"></apex:sectionHeader>
+<!-- apex:includescript value="{!$Resource.JQuery_Latest}" /-->
+
+<apex:includeScript value="{!URLFOR($Resource.JQuery_Latest, '/js/jquery-1.7.2.min.js')}"  />
+<apex:includeScript value="{!URLFOR($Resource.JQuery_Latest, '/js/jquery-ui-1.8.21.custom.min.js')}"  />
+<apex:stylesheet value="{!URLFOR($Resource.JQuery_Latest, '/css/ui-lightness/jquery-ui-1.8.21.custom.css')}"  />
+
+<!-- All jQuery code -->
+<script  type="text/javascript">
+		var j$ = jQuery.noConflict();
+		
+		j$(document).ready(function() {  
+			//var buttonId =  document.getElementById("j_id0:j_id6:pageBlock:j_id7:theButton");
+			//alert(buttonId);
+			
+			//This is selecting the Html element using the class name
+			//j$(".ePBbutton").hide()
+			
+			//fetching the html element name using the element id[fetching the html element of input type ending with name cInput]
+				//j$("input[id$=cInput]").hide();			
+				//j$("input[id$=theButton]").hide();
+				
+			
+			j$("input[id$=theButton]").click(function(){
+				alert("This is jQuery Test");
+				// hiding the current HTML element
+					//j$(this).hide();
+				
+				// hiding the element with id="cInput".
+					//j$("input[id$=cInput]").hide();
+					
+				// hiding all <p> elements
+					 //j$("p").hide();
+				
+				// hiding all elements with class="ePBbutton".
+					//j$(".ePBbutton").hide()
+					
+				 j$("div[id$=thePanel]").animate({height:300},"slow");
+			    j$("div[id$=thePanel]").animate({width:300},"slow");
+			    j$("div[id$=thePanel]").animate({height:100},"slow");
+			    j$("div[id$=thePanel]").animate({width:100},"slow");
+			});
+			
+			
+		});
+	
+</script>
+<!-- All jQuery code -->
+
+<apex:form >
+<apex:pageBlock title="">
+  <!-- This block will show the search textbox and the Search button -->
+  <apex:pageBlockButtons location="top">
+  <apex:outputPanel id="thePanel" layout="block" style="background:#98bf21;height:100px;width:100px;position:relative">This searches all the account with the name containing</apex:outputPanel>
+    <apex:inputText value="{!keywords}" style="height:15px;" id="cInput"></apex:inputText>
+    <apex:commandButton value="Search" action="{!ViewData}" id="theButton" rerender="pageBlock" status="status" styleclass="ePBbutton"></apex:commandButton>
+  </apex:pageBlockButtons>
+  <!-- To show page level messages -->
+  <apex:pageMessages ></apex:pageMessages>
+
+  <!-- The below tag will provide a javascript method which when is called in turn will call a controller's method -->
+  <apex:actionFunction action="{!UpdateRecords}" name="updateRecords" rerender="pageBlock" status="status"></apex:actionFunction>
+
+  <!-- This table contains columns which have inputfield components -->
+  <apex:pageBlockTable value="{!accounts}" var="a" rendered="{!NOT(ISNULL(accounts))}">
+     <apex:column >
+       <apex:facet name="header">Name</apex:facet>
+       <apex:inputField value="{!a.Name}" onchange="updateRecords();"></apex:inputField>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Phone</apex:facet>
+       <apex:inputField value="{!a.Phone}" onchange="updateRecords();"></apex:inputField>
+     </apex:column>
+     <apex:column >
+       <apex:inputField value="{!a.BillingStreet}" onchange="updateRecords();"></apex:inputField>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Billing City</apex:facet>
+       <apex:inputField value="{!a.BillingCity}" onchange="updateRecords();"></apex:inputField>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Billing Country</apex:facet>
+       <apex:inputField value="{!a.BillingCountry}" onchange="updateRecords();"></apex:inputField>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Industry</apex:facet>
+       <apex:inputField value="{!a.Industry}" onchange="updateRecords();"></apex:inputField>
+     </apex:column>
+  </apex:pageBlockTable>
+
+</apex:pageBlock>
+
+<!-- The action status to show when the AJAX postback is wroking. -->
+<apex:actionStatus id="status" startText="Requesting..."/>
+</apex:form>
+</apex:page>

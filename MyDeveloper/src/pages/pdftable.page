@@ -1,0 +1,48 @@
+<apex:page standardController="Account" extensions="pdftable" tabStyle="Account" renderAs="pdf">
+  <apex:pageBlock title="Account Information">
+  <div style="overflow:auto;">
+   <apex:pageBlockTable value="{!accList}" var="a" border="1" width="100%">
+   
+   <apex:column headervalue="Created By" width="10px"> 
+      <apex:outputText value="{!a.CreatedById}"/>
+   </apex:column>
+   <apex:column headervalue="Budget Low c"> 
+      <apex:outputText value="{!a.Budget_Low__c}"/>
+   </apex:column>
+   <apex:column headervalue="Budget High c"> 
+      <apex:outputText value="{!a.Budget_High__c}"/>
+   </apex:column>
+   <apex:column headervalue="Billing Street"> 
+      <apex:outputText value="{!a.BillingStreet}"/>
+   </apex:column>
+   <apex:column headervalue="Billing State"> 
+      <apex:outputText value="{!a.BillingState}"/>
+   </apex:column>
+   
+   <apex:column headervalue="Billing Postal Code" width="2%" style="word-wrap: break-word;"> 
+      <apex:outputText value="{!a.BillingPostalCode}"/>
+   </apex:column>
+   
+    <apex:column headervalue="BillingCountry"> 
+      <apex:outputText value="{!a.BillingCountry}"/>
+   </apex:column>
+    <apex:column headervalue="BillingCity"> 
+      <apex:outputText value="{!a.BillingCity}"/>
+   </apex:column>
+    <apex:column headervalue="AnnualRevenue"> 
+      <apex:outputText value="{!a.AnnualRevenue}"/>
+   </apex:column>
+    <apex:column headervalue="Active__c"> 
+      <apex:outputText value="{!a.Active__c}"/>
+   </apex:column>
+   
+   
+   </apex:pageBlockTable>
+ 
+   </div> 
+      
+  
+  
+
+  </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,95 @@
+<apex:page controller="jQueryValidationCont"  showheader="false" standardstylesheets="false">
+
+    <apex:includescript value="{!$Resource.jQuery1}"></apex:includescript>
+    <apex:includescript value="http://ajax.microsoft.com/ajax/jquery.validate/1.6/jquery.validate.min.js"></apex:includescript>
+
+    <script>
+    
+        j$ = jQuery.noConflict();
+        j$(document).ready(function() {
+            /* Note: The jq() function is explained @ http://wp.me/pxPpB-8B */
+            j$(jq(f)).validate();
+
+            j$(jq(name)).rules("add",{
+                required: true,
+                minlength: 2
+            });
+
+            j$(jq(email)).rules("add",{
+                required: true,
+                email: true
+            });
+
+            j$(jq(url)).rules("add",{
+                url: true
+            });
+
+            j$(jq(comment)).rules("add",{
+                required: true
+            });
+
+            j$(jq(password)).rules("add",{
+                required: true,
+                minlength: 5
+            });
+
+            j$(jq(cpassword)).rules("add",{
+                required: true,
+                minlength: 5,
+                equalTo: jq(password)
+            });
+
+            /* Customised the messages */
+            jQuery.validator.messages.required = "You better have entered a value.. or else!";
+            jQuery.validator.messages.equalTo = "No silly, you're supposed to type the same set of characters AGAIN.";
+        });
+
+    </script >
+
+                <apex:form id="commentForm">
+                <apex:pageBlock >
+                    <apex:pageblockSection columns="1">
+
+                        <script > <!-- This is a hack that helps JS chat to VF in a robust way -->
+                            var name = "{!$Component.name}";
+                            var email = "{!$Component.email}";
+                            var url = "{!$Component.url}";
+                            var comment = "{!$Component.comment}";
+                            var password = "{!$Component.pwd}";
+                            var cpassword = "{!$Component.cpwd}";
+                        </script >
+
+                        <apex:outputlabel for="name">Name (required, at least 2 characters)</apex:outputlabel>
+                        <apex:inputtext id="name" value="{!name}"></apex:inputtext><BR/>
+
+                        <apex:outputlabel for="email">E-Mail (required)</apex:outputlabel>
+                        <apex:inputtext id="email" value="{!email}"></apex:inputtext><BR/>
+
+                        <apex:outputlabel for="url">URL (optional)</apex:outputlabel>
+                        <apex:inputtext id="url" value="{!url}"></apex:inputtext><BR/>
+
+                        <apex:outputlabel for="comment">Your comment (required)</apex:outputlabel>
+                        <apex:inputtextarea id="comment" value="{!comment}"></apex:inputtextarea><BR/>
+
+                        <apex:outputlabel for="pwd">Password</apex:outputlabel>
+                        <apex:inputsecret id="pwd" value="{!pwd}"></apex:inputsecret><BR/>
+
+                        <apex:outputlabel for="cpwd">Password</apex:outputlabel>
+                        <apex:inputsecret id="cpwd" value="{!cpwd}"></apex:inputsecret><BR/>
+
+                        <apex:commandbutton action="{!save}" value="Submit"></apex:commandbutton>
+
+                    </apex:pageblockSection>
+                </apex:pageBlock>
+                </apex:form>
+
+                <script>
+                    function jq(myid) { /* This function handles the colon in VisualForce Ids */
+                       return '#' + myid.replace(/(:|\.)/g,'\\$1');
+                     }
+
+                    var f = "{!$Component.commentForm}";
+
+                </script>
+                
+</apex:page>

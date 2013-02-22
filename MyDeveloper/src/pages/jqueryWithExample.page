@@ -1,0 +1,70 @@
+<apex:page id="Mypage">
+<apex:form Id="MyForm">    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery1, 'js/jquery-1.3.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery1, 'js/jquery-ui-1.7.3.custom.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery1, 'css/ui-lightness/jquery-ui-1.7.3.custom.css')}"/>
+    
+
+    
+    <script type="text/javascript"> 
+    
+         function jq(myid) 
+         { 
+            return myid.replace(/(:|\.)/g,'\\\\$1');
+         }
+         
+         $j = jQuery.noConflict();
+        
+         $j(document).ready(function(){
+             //jquery selector+ show  and hide function
+             $j(jq('#' + '{!$component.flag}')).html("Hello World !! (display due to jQuery)").css("color","green");
+             $j(jq('#' + '{!$component.htm}')).hide();
+             
+             //using jquery click function
+             $j(jq('#' + '{!$component.cl}')).click(function(){
+                alert("This is your new jQeury click function!");
+                $j(jq('#' + '{!$component.htm}')).show();
+                
+                 //hyperlink toggle
+               $j(jq('#' + '{!$component.theLink}')).toggle();
+             });
+             
+            //using contains function
+            $j("div:contains('test')").css("text-decoration", "underline");   
+            
+                
+             
+        }); 
+        
+         //binding events
+        $j(document).ready(function(){
+            $j("p").bind("click", function(event){
+                var str = "( " + event.pageX + ", " + event.pageY + " )";
+                $j("span").text("Click happened! " + str);
+            });
+         }); 
+       
+        
+        
+    </script>    
+    
+    <p>Click or double click here.</p>
+    <span></span>
+    
+    <apex:outputPanel style="color:red" id="htm">
+        Hello World !! (display due to HTML)
+    </apex:outputPanel>
+    <BR/>
+    
+    <apex:outputPanel id="flag" style="color:green">        
+    </apex:outputPanel><BR/><BR/>
+    
+    <apex:outputPanel id="op1" style="color:blue"> This is test for contains function!!       
+    </apex:outputPanel><BR/><BR/>
+    
+    
+    <apex:commandButton id="cl" value="Click Me" onclick="false"/><BR/>
+    <apex:outputLink value="https://www.salesforce.com" id="theLink" target="_blank">www.google.com</apex:outputLink>
+
+</apex:form>
+</apex:page>

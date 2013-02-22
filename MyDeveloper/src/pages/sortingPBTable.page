@@ -1,0 +1,92 @@
+<apex:page standardController="Account" >  
+  
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.6.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.16.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqQueryTableSorter, 'jquery.tablesorter.min.js')}"/>  
+    <apex:includeScript value="{!URLFOR($Resource.jqBlockUIPlugin)}"/>  
+     <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/ui-lightness/jquery-ui-1.8.16.custom.css')}"/> 
+  
+    <script>
+         
+         $j = jQuery.noConflict();
+         blockPage();         
+        
+        //on window ready
+        $j(document).ready(function() 
+            { 
+                unblockPage();
+                $j('#loading-images').fadeIn(8000);
+               //$j('#loading-image').hide();
+                
+                //enable sorting in pageblock tables using table sorter plugin
+                $j("[id$=myTableBlogForce9]").tablesorter(); 
+                $j('.headerRow').click(function(){
+                    //on header click remove the styling
+                    $j('.dataRow').removeClass('last');
+                    
+                });
+                
+                $j("[id$=myTableBlogForce9]").bind("sortEnd",function(e) {
+                    $j('.mySort').remove();
+                    $j('.headerSortDown').children().append('<apex:image value="/s.gif" styleClass="sortDesc mySort"  alt="Sorted Descending" title="Sorted Descending" /> ');
+                    $j('.headerSortUp').children().append('<apex:image value="/s.gif" styleClass="sortAsc mySort"  alt="Sorted Ascending" title="Sorted Ascending" />');
+                });
+                   
+                 
+            } 
+        ); 
+        
+        //function to block the whole page  
+         function blockPage(){   
+           $j.blockUI({ message: '<apex:image value="/img/loading.gif" styleClass="waitingImage" /> Loading...',   
+             css: {                 
+              border: 'none',   
+              padding: '15px',   
+              '-webkit-border-radius': '10px',   
+              '-moz-border-radius': '10px',   
+              opacity: .9,
+              timeout: 12000
+             }   
+           });
+           
+           return false;  
+         }  
+         
+         //function to unblock the page  
+         function unblockPage(){  
+           $j.unblockUI();  
+         }  
+        
+        
+    </script> 
+    
+    <style>
+        
+    
+    </style>
+    
+  <apex:form >
+   <div id="loading-image" style="display:none;">
+       <apex:image value="/img/loading.gif" styleClass="waitingImage" id="loadingImage" alt="Loading..."/> 
+  </div>
+   
+   <apex:actionStatus onstart="blockPage()" onstop="unblockPage()" id="blockUI"/>  
+     <apex:pageBlock title="My Content">
+     <apex:pageMessages />
+     
+          <apex:pageBlockButtons id="pb">  
+             <!--Note here in the status attribute of command button the id of action status is provided-->  
+             <apex:commandButton value="Send Request"  reRender="pb" status="blockUI"/>  
+           </apex:pageBlockButtons>
+           
+        <apex:pageBlockTable value="{!account.Contacts}" var="c" id="myTableBlogForce9">
+            <apex:column value="{!c.Name}"/>
+            <apex:column value="{!c.Department}"/>
+            <apex:column value="{!c.Languages__c}"/>
+        </apex:pageBlockTable>
+        
+  
+    </apex:pageBlock> 
+     
+</apex:form> 
+</apex:page>

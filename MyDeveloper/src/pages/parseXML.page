@@ -1,0 +1,12 @@
+<apex:page sidebar="false" showHeader="false" controller="parseXMLController">
+<apex:pageMessages />
+<apex:form >
+	<apex:inputTextarea cols="40" rows="20" value="{!textToParse}"/>
+		
+	<apex:inputTextarea cols="40" rows="20" id="result" value="{!parsedText}" />
+	
+	<BR/>
+	
+	<apex:commandButton value="Parse" action="{!parse}" reRender="result"/>
+</apex:form>
+</apex:page>

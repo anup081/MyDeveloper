@@ -1,0 +1,7 @@
+Hi {!Contact.FirstName}
+
+The comment is updated for the case number : {!Case.CaseNumber}.
+Please check
+
+Thanks
+Support

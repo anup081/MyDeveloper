@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>eCRM Survey</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>eCRM Surveys</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact Email --></label>
+        <name>Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact First Name --></label>
+        <name>Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Last Name --></label>
+        <name>Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Frequency of contacting eCRM help --></label>
+        <name>Frequency_of_contacting_eCRM_help__c</name>
+        <picklistValues>
+            <masterLabel>Every 2 - 3 months</masterLabel>
+            <translation><!-- Every 2 - 3 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Every 2 - 3 weeks</masterLabel>
+            <translation><!-- Every 2 - 3 weeks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Every day</masterLabel>
+            <translation><!-- Every day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Every month</masterLabel>
+            <translation><!-- Every month --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Overall satisfaction with eCRM help --></label>
+        <name>Overall_satisfaction_with_eCRM_help__c</name>
+        <picklistValues>
+            <masterLabel>Neutral</masterLabel>
+            <translation><!-- Neutral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somewhat dissatisfied</masterLabel>
+            <translation><!-- Somewhat dissatisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somewhat satisfied</masterLabel>
+            <translation><!-- Somewhat satisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Very dissatisfied</masterLabel>
+            <translation><!-- Very dissatisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Very satisfied</masterLabel>
+            <translation><!-- Very satisfied --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Satisfaction for most recent problem --></label>
+        <name>Satisfaction_for_most_recent_eCRM_sup__c</name>
+        <picklistValues>
+            <masterLabel>Neutral</masterLabel>
+            <translation><!-- Neutral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somewhat dissatisfied</masterLabel>
+            <translation><!-- Somewhat dissatisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somewhat satisfied</masterLabel>
+            <translation><!-- Somewhat satisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Very dissatisfied</masterLabel>
+            <translation><!-- Very dissatisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Very satisfied</masterLabel>
+            <translation><!-- Very satisfied --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Support staff satisfaction for problem --></label>
+        <name>Support_staff_satisfaction_for_problem__c</name>
+        <picklistValues>
+            <masterLabel>NO</masterLabel>
+            <translation><!-- NO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YES</masterLabel>
+            <translation><!-- YES --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Time to resolve the case by eCRM Help --></label>
+        <name>Time_to_resolve_the_case_by_eCRM_Help__c</name>
+        <picklistValues>
+            <masterLabel>10 minutes to less than 20 minutes</masterLabel>
+            <translation><!-- 10 minutes to less than 20 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 minutes to less than 30 minutes</masterLabel>
+            <translation><!-- 20 minutes to less than 30 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 minutes or more</masterLabel>
+            <translation><!-- 30 minutes or more --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 minutes to less than 10 minutes</masterLabel>
+            <translation><!-- 5 minutes to less than 10 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than 5 minutes</masterLabel>
+            <translation><!-- Less than 5 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than a day</masterLabel>
+            <translation><!-- More than a day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Next day</masterLabel>
+            <translation><!-- Next day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Problem did not get resolved</masterLabel>
+            <translation><!-- Problem did not get resolved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Waiting time over phone --></label>
+        <name>Waiting_time_over_phone__c</name>
+        <picklistValues>
+            <masterLabel>1 to less than 3 minutes</masterLabel>
+            <translation><!-- 1 to less than 3 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 minutes or over</masterLabel>
+            <translation><!-- 10 minutes or over --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 to less than 5 minutes</masterLabel>
+            <translation><!-- 3 to less than 5 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 to less than 10 minutes</masterLabel>
+            <translation><!-- 5 to less than 10 minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than 1 minute</masterLabel>
+            <translation><!-- Less than 1 minute --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
